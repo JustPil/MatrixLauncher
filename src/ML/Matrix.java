@@ -83,24 +83,26 @@ public class Matrix
     {
         for(int j = 0; j < matrix[0].length; j++)
         {
-            for(int i = 0; i < matrix.length - 1; i++)
+            if(matrix[2][j] == 0 && matrix[1][j] == 0 && matrix[0][j] != 0)
             {
-                if(i + 1 < matrix.length && matrix[i][j] != 0 && matrix[i + 1][j] == 0)
-                {
-                    int swap = matrix[i][j];
-                    matrix[i][j] = 0;
-                    matrix[i + 1][j] = swap;
-                }
-                else if(i - 1 > 0 && matrix[i][j] != 0 && matrix[i - 1][j] == 0)
-                {
-                    int swap = matrix[i][j];
-                    matrix[i][j] = 0;
-                    matrix[i - 1][j] = swap;
-                }
-                else
-                {
-                    continue;
-                }
+                int swap = matrix[0][j];
+                matrix[0][j] = 0;
+                matrix[2][j] = swap;
+            }
+            if(matrix[2][j] == 0 && matrix[1][j] != 0)
+            {
+                int swap = matrix[1][j];
+                matrix[1][j] = 0;
+                matrix[2][j] = swap;
+                swap = matrix[0][j];
+                matrix[0][j] = 0;
+                matrix[1][j] = swap;
+            }
+            if(matrix[1][j] == 0 && matrix[0][j] != 0 && matrix[2][j] != 0)
+            {
+                int swap = matrix[0][j];
+                matrix[0][j] = 0;
+                matrix[1][j] = swap;
             }
         }
     }
