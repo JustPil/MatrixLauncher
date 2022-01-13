@@ -35,7 +35,7 @@ public class Matrix
     {
         if(i >= matrix.length || i < 0 || j >= matrix[0].length || j < 0)
         {
-            System.out.println("Indexes are out of bounds.");
+            System.out.println("Indices are out of bounds.");
         }
         else
         {
